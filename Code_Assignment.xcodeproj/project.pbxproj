@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		84DB4B3D708F3817912C5717 /* Pods_Code_Assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EA34441648A0118FFB977E /* Pods_Code_Assignment.framework */; };
+		EF23034520E8DBE40099E058 /* PhotoMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF23034420E8DBE40099E058 /* PhotoMO.swift */; };
+		EF23034920E8E1090099E058 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF23034820E8E1090099E058 /* CoreDataManager.swift */; };
 		EF8215A620E862F200D78F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8215A520E862F200D78F8E /* AppDelegate.swift */; };
-		EF8215A820E862F200D78F8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8215A720E862F200D78F8E /* ViewController.swift */; };
 		EF8215AB20E862F200D78F8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF8215A920E862F200D78F8E /* Main.storyboard */; };
 		EF8215AE20E862F200D78F8E /* Code_Assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF8215AC20E862F200D78F8E /* Code_Assignment.xcdatamodeld */; };
 		EF8215B020E862F400D78F8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8215AF20E862F400D78F8E /* Assets.xcassets */; };
@@ -26,9 +27,10 @@
 		6791721A9EA31EAC9DD878EA /* Pods-Code_Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code_Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code_Assignment/Pods-Code_Assignment.release.xcconfig"; sourceTree = "<group>"; };
 		74594A45309BEB67D0B18366 /* Pods-Code_Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code_Assignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code_Assignment/Pods-Code_Assignment.debug.xcconfig"; sourceTree = "<group>"; };
 		85EA34441648A0118FFB977E /* Pods_Code_Assignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Assignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF23034420E8DBE40099E058 /* PhotoMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoMO.swift; path = /Users/tarungupta/Desktop/Code_Assignment/Model/CoreDataModel/PhotoMO.swift; sourceTree = "<absolute>"; };
+		EF23034820E8E1090099E058 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		EF8215A220E862F200D78F8E /* Code_Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Code_Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8215A520E862F200D78F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF8215A720E862F200D78F8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EF8215AA20E862F200D78F8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF8215AD20E862F200D78F8E /* Code_Assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Code_Assignment.xcdatamodel; sourceTree = "<group>"; };
 		EF8215AF20E862F400D78F8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,9 +73,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF23034A20E8E1180099E058 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EF23034820E8E1090099E058 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		EF82159920E862F200D78F8E = {
 			isa = PBXGroup;
 			children = (
+				EF23034A20E8E1180099E058 /* Manager */,
 				EF8215C120E887F600D78F8E /* Model */,
 				EF8215BA20E872D500D78F8E /* Network Manager */,
 				EF8215A420E862F200D78F8E /* Code_Assignment */,
@@ -95,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				EF8215A520E862F200D78F8E /* AppDelegate.swift */,
-				EF8215A720E862F200D78F8E /* ViewController.swift */,
 				EF8215C420E888DD00D78F8E /* ResultsTableViewController.swift */,
 				EF8215CA20E8CECA00D78F8E /* ImageViewController.swift */,
 				EF8215A920E862F200D78F8E /* Main.storyboard */,
@@ -119,10 +129,19 @@
 		EF8215C120E887F600D78F8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF8215CE20E8D7E600D78F8E /* CoreDataModel */,
 				EF8215BF20E887D000D78F8E /* ResponseJSON.swift */,
 				EF8215C620E8B81700D78F8E /* Photo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EF8215CE20E8D7E600D78F8E /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF23034420E8DBE40099E058 /* PhotoMO.swift */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +265,10 @@
 				EF8215C020E887D000D78F8E /* ResponseJSON.swift in Sources */,
 				EF8215C520E888DD00D78F8E /* ResultsTableViewController.swift in Sources */,
 				EF8215BE20E872D500D78F8E /* AlamoFireWrapper.swift in Sources */,
-				EF8215A820E862F200D78F8E /* ViewController.swift in Sources */,
 				EF8215A620E862F200D78F8E /* AppDelegate.swift in Sources */,
 				EF8215BD20E872D500D78F8E /* ServiceHandler.swift in Sources */,
+				EF23034520E8DBE40099E058 /* PhotoMO.swift in Sources */,
+				EF23034920E8E1090099E058 /* CoreDataManager.swift in Sources */,
 				EF8215AE20E862F200D78F8E /* Code_Assignment.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

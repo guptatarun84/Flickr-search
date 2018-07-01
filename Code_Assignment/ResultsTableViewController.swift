@@ -55,12 +55,17 @@ class ResultsTableViewController: UITableViewController {
 		cell.textLabel?.text = dict.title
 		cell.detailTextLabel?.text = dict.owner
 		
-		getPhoto(url: dict.url_s!, completionHandler: { image in
-			cell.imageView?.image = image
-//			cell.imageView?.image = self.imageWithImage(image: image!,
-//														scaledToSize: CGSize(width: 40, height: 40))
-		})
-
+		if dict.url_s != nil {
+			getPhoto(url: dict.url_s!, completionHandler: { image in
+				cell.imageView?.image = image
+				let context = CoreDataManager.mainContext
+				let dataImage = UIImageJPEGRepresentation(image!, 0.0)
+				CoreDataManager.saveReport(dict.title!, dict.owner!, dataImage! as NSData, in: context)
+				// TODO: To fix the size of image- Some error
+				//			cell.imageView?.image = self.imageWithImage(image: image!,
+				//														scaledToSize: CGSize(width: 40, height: 40))
+			})
+		}
 		cell.accessoryType = .disclosureIndicator
 		cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
 		return cell
@@ -87,7 +92,6 @@ class ResultsTableViewController: UITableViewController {
 				imageViewController.image = self.fullViewImage
 			}
 		}
-		
 	}
 
 	func imageWithImage(image:UIImage,scaledToSize newSize:CGSize)->UIImage{
@@ -117,7 +121,6 @@ extension ResultsTableViewController : UISearchResultsUpdating {
 								self.arrResponse = (response?.photos)!
 								if self.arrResponse.count > 0 {
 									self.tableView.reloadData()
-									print(self.arrResponse.count)
 								}
 			})
 		}
