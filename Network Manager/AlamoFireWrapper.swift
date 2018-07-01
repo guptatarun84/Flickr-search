@@ -51,7 +51,8 @@ class AlamoFireWrapper: NSObject {
 							}
 		}
 	}
-	
+
+	// Mark: - AlamofireImage- requestImage
 	class func requestImage(path: String,
 							completionHandler: @escaping (Image) -> Void) {
 		Alamofire.request("\(path)").responseImage(imageScale: 1.5,

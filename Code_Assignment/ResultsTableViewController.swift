@@ -80,11 +80,8 @@ class ResultsTableViewController: UITableViewController {
 	}
 
 	// MARK: - Navigation
-	
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destinationViewController.
-	// Pass the selected object to the new view controller.
 		if segue.identifier == "showImage" {
 			if let imageViewController = segue.destination as? ImageViewController {
 				imageViewController.image = self.fullViewImage
@@ -93,7 +90,6 @@ class ResultsTableViewController: UITableViewController {
 		
 	}
 
-	
 	func imageWithImage(image:UIImage,scaledToSize newSize:CGSize)->UIImage{
 		UIGraphicsBeginImageContext( newSize )
 		image.draw(in: CGRect(x: 0,y: 0,width: newSize.width,height: newSize.height))
